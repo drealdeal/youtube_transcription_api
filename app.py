@@ -21,7 +21,7 @@ logger = logging.getLogger(__name__)
 # Set up OpenAI API key
 client = AsyncOpenAI(
     # This is the default and can be omitted
-    api_key=os.environ.get("OPENAI_API_KEY"),
+    # api_key=os.environ.get("API_KEY"),
 )
 
 def get_youtube_id(url):
@@ -30,7 +30,7 @@ def get_youtube_id(url):
     return video_id.group(1) if video_id else None
 
 def process_transcript(video_id):
-    proxy_address=os.environ.get("PROXY")
+    proxy_address=os.environ.get(http://198.23.239.134/6540)
     transcript = YouTubeTranscriptApi.get_transcript(video_id, proxies = {"http": proxy_address,"https": proxy_address})
     full_text = ' '.join([entry['text'] for entry in transcript])
     return full_text
